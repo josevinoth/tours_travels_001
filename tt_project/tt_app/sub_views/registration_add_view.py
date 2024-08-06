@@ -5,20 +5,24 @@ from django.shortcuts import render, redirect
 
 @login_required(login_url='login_page')
 def registrion_add(request,registration_id=0):
-
     if request.method == "GET":
         if registration_id == 0:
             form = registrationaddForm()
         else:
             reg=registration_info.objects.get(pk=registration_id)
             form = registrationaddForm(instance=reg)
-        return render(request, "asset_mgt_app/registration.html",)
+
+        context={
+                'form':form,
+                }
+        return render(request, "tt_html/registration_add.html",context)
     else:
         if registration_id == 0:
             form = registrationaddForm(request.POST)
         else:
             reg = registration_info.objects.get(pk=registration_id)
             form = registrationaddForm(request.POST,instance=reg)
+
         if form.is_valid():
             form.save()
         # return redirect('/SMS/bay_list')
