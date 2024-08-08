@@ -1,8 +1,8 @@
 from django.db import models
-# from ..models import Product_info,Department_info,MyUser,Location_info,Vendor_info,Insurance_Info,UnitInfo
+from ..models import registration_info
 
 class students_info(models.Model):
-    stu_name = models.CharField(max_length=50,blank=True)
+    stu_name = models.ForeignKey(registration_info, on_delete=models.CASCADE, default='')
     english = models.IntegerField()
     language = models.IntegerField()
     maths = models.IntegerField()

@@ -7,26 +7,30 @@ from django.shortcuts import render, redirect
 def registrion_add(request,registration_id=0):
     if request.method == "GET":
         if registration_id == 0:
-            form = registrationaddForm()
+            print("I am inside get add")
+            reg_form = registrationaddForm()
         else:
+            print("I am inside get edit")
             reg=registration_info.objects.get(pk=registration_id)
-            form = registrationaddForm(instance=reg)
+            reg_form = registrationaddForm(instance=reg)
 
         context={
-                'form':form,
+                'reg_form':reg_form,
                 }
         return render(request, "tt_html/registration_add.html",context)
     else:
         if registration_id == 0:
-            form = registrationaddForm(request.POST)
+            print("I am inside post add")
+            reg_form = registrationaddForm(request.POST)
         else:
+            print("I am inside post edit")
             reg = registration_info.objects.get(pk=registration_id)
-            form = registrationaddForm(request.POST,instance=reg)
+            reg_form = registrationaddForm(request.POST,instance=reg)
 
-        if form.is_valid():
-            form.save()
-        # return redirect('/SMS/bay_list')
-        return redirect(request.META['HTTP_REFERER'])
+        if reg_form.is_valid():
+            reg_form.save()
+        return redirect('/tt_project/registration_list')
+        # return redirect(request.META['HTTP_REFERER'])
 # List bay
 # @login_required(login_url='login_page')
 def registration_list(request):
@@ -37,9 +41,9 @@ def registration_list(request):
         }
     return render(request,"tt_html/registration_list.html",context)
 
-# #Delete bay
+#Delete bay
 # @login_required(login_url='login_page')
-# def bay_delete(request,bay_id):
-#     bay = BayInfo.objects.get(pk=bay_id)
-#     bay.delete()
-#     return redirect('/SMS/bay_list')
+def registration_delete(request,registration_id):
+    reg = registration_info.objects.get(pk=registration_id)
+    reg.delete()
+    return redirect('/tt_project/registration_list')

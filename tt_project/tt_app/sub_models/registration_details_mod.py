@@ -3,7 +3,7 @@ from django.db import models
 
 class registration_info(models.Model):
     reg_name = models.CharField(max_length=50,blank=True)
-    reg_age = models.IntegerField()
+    reg_age = models.IntegerField(null=True,blank=True)
     reg_mobile_no = models.IntegerField()
 
     def __str__(self):
