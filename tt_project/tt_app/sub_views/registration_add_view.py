@@ -3,7 +3,7 @@ from ..forms import registrationaddForm
 from ..models import registration_info
 from django.shortcuts import render, redirect
 
-@login_required(login_url='login_page')
+#@login_required(login_url='login_page')
 def registrion_add(request,registration_id=0):
     if request.method == "GET":
         if registration_id == 0:
