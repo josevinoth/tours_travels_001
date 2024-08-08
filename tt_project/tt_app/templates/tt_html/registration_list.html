@@ -41,6 +41,19 @@
             <td> {{reg_details.reg_name}}</td>
             <td> {{reg_details.reg_age}}</td>
             <td> {{reg_details.reg_mobile_no}}</td>
+            <td>
+                <a href="{% url 'resgistration_update' reg_details.id %}" class="btn btn-primary">
+                    <i class="far fa-edit"></i>
+                </a>
+            </td>
+            <td>
+                <form action="{% url 'resgistration_delete' reg_details.id %}" method="post" onclick="return confirm('Are you sure?');">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </form>
+            </td>
         </tr>
         {% endfor %}
         </tbody>
