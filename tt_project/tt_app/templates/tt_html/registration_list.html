@@ -47,7 +47,7 @@
                 </a>
             </td>
             <td>
-                <form action="{% url 'resgistration_delete' reg_details.id %}" method="post" onclick="return confirm('Are you sure?');">
+                <form action="" method="post" onclick="return confirm('Are you sure?');">
                     {% csrf_token %}
                     <button type="submit" class="btn btn-danger">
                         <i class="fas fa-trash-alt"></i>
