@@ -29,13 +29,13 @@ def registrion_add(request,registration_id=0):
         return redirect(request.META['HTTP_REFERER'])
 # List bay
 # @login_required(login_url='login_page')
-def registration_list(request):
+#def registration_list(request):
     # first_name = request.session.get('first_name')
-    context = {
-        'resgistration_list' : registration_info.objects.all(),
+   #context = {
+        #'resgistration_list' : registration_info.objects.all(),
         # 'first_name': first_name
-        }
-    return render(request,"tt_html/registration_list.html",context)
+       # }
+    #return render(request,"tt_html/registration_list.html",context)
 
 # #Delete bay
 # @login_required(login_url='login_page')

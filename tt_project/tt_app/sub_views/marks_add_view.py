@@ -26,3 +26,10 @@ def marks_add(request,registration_id=0):
             form.save()
         # return redirect('/SMS/bay_list')
         return redirect(request.META['HTTP_REFERER'])
+#def registration_list(request):
+    #first_name = request.session.get('first_name')
+   #context = {
+            #'resgistration_list' : marks_info.objects.all(),
+            #'first_name': first_name
+        }
+    #return render(request,"tt_html/registration_list.html",context)
