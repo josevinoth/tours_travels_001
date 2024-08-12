@@ -1,8 +1,9 @@
 from django.db import models
-# from ..models import Product_info,Department_info,MyUser,Location_info,Vendor_info,Insurance_Info,UnitInfo
+from ..models import gender_info
 
 class marks_info(models.Model):
     reg_name = models.CharField(max_length=50,blank=True)
+    reg_gender_1 = models.ForeignKey(gender_info,on_delete=models.CASCADE,default='')
     reg_English = models.IntegerField()
     reg_Language = models.IntegerField()
     reg_Maths = models.IntegerField()

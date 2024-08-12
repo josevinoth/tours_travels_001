@@ -34,16 +34,16 @@ def registrion_add(request,registration_id=0):
 # List bay
 # @login_required(login_url='login_page')
 #def registration_list(request):
-    # first_name = request.session.get('first_name')
-   #context = {
+    #first_name = request.session.get('first_name')
+    #context = {
         #'resgistration_list' : registration_info.objects.all(),
-        # 'first_name': first_name
-       # }
-    #return render(request,"tt_html/registration_list.html",context)
+         #'first_name': first_name
+        #}
+    #return render(request,"tt_html/registration_list",context)
 
 #Delete bay
 # @login_required(login_url='login_page')
-def registration_delete(request,registration_id):
-    reg = registration_info.objects.get(pk=registration_id)
-    reg.delete()
-    return redirect('/tt_project/registration_list')
+#def registration_delete(request,registration_id):
+    #reg = registration_info.objects.get(pk=registration_id)
+    #reg.delete()
+    #return redirect('/tt_project/registration_list')

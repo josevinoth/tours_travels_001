@@ -14,14 +14,12 @@
 
 <div class="container-fluid row">
     <div class="col-md-1">
-        <a href="" class="btn btn-primary btn-block btn-lg">
-            <i class="fas fa-arrow-left"></i> Back
-        </a>
+       <a href="{% url 'home' %}" button type="button" class="btn btn-primary btn-lg">HOME</a>
+
     </div>
     <div class="col-md-1">
-        <a href="{% url 'registration_add' %}" class="btn btn-success btn-block btn-lg">
-            <i class="fas fa-plus"></i> Add
-        </a>
+        <a href="{% url 'marks_add' %}" button type="button" class="btn btn-primary btn-lg" >ADD</a>
+
     </div>
 </div>
 <hr>
@@ -30,24 +28,34 @@
         <thead class="thead-dark">
         <tr>
             <th>Name</th>
-            <th>Age</th>
-            <th>Contact Number</th>
+            <th>Gender</th>
+            <th>English</th>
+            <th>Language</th>
+            <th>Maths</th>
+            <th>Science</th>
+            <th>Social</th>
+            <th>Total</th>
             <th>Edit</th>
             <th>Delete</th>
         </thead>
         <tbody>
-        {% for reg_details in resgistration_list %}
+        {% for reg_details in marks_list %}
         <tr>
             <td> {{reg_details.reg_name}}</td>
-            <td> {{reg_details.reg_age}}</td>
-            <td> {{reg_details.reg_mobile_no}}</td>
+            <td> {{reg_details.reg_gender_1}}</td>
+            <td> {{reg_details.reg_English}}</td>
+            <td> {{reg_details.reg_Language}}</td>
+            <td> {{reg_details.reg_Maths}}</td>
+            <td> {{reg_details.reg_Science}}</td>
+            <td> {{reg_details.reg_Social}}</td>
+            <td> {{reg_details.reg_Total}}</td>
             <td>
-                <a href="{% url 'resgistration_update' reg_details.id %}" class="btn btn-primary">
+                <a href="{% url 'marks_update' reg_details.id %}" class="btn btn-primary">
                     <i class="far fa-edit"></i>
                 </a>
             </td>
             <td>
-                <form action="" method="post" onclick="return confirm('Are you sure?');">
+                <form action="{% url 'marks_delete' reg_details.id %}" method="post" onclick="return confirm('Are you sure?');">
                     {% csrf_token %}
                     <button type="submit" class="btn btn-danger">
                         <i class="fas fa-trash-alt"></i>
@@ -62,7 +70,7 @@
 
 <script>
     $(document).ready(function() {
-    $('#registration_list').DataTable();
+    $('#marks_list').DataTable();
 } );
 </script>
 

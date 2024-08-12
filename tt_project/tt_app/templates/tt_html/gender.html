@@ -1,0 +1,32 @@
+{% extends "tt_html/base.html" %}
+{% load widget_tweaks %}
+{% block content %}
+<form method="POST" action="" id="registration_add">
+	{% csrf_token %}
+	<div class="row">
+		<div class="col-3"></div>
+		<div class="col-6">
+			<div class="container-fluid">
+				<div class="card text-white bg-info mb-3" style="max-width: 100%;">
+					<div class="card-header text-center"><h3>Gender</h3></div>
+					<div class="card-body bg-light" >
+						<div class="row">
+							<div class="col">
+								<div class="input-group input-group-sm mb-3">
+									<div class="input-group-prepend">
+										<span class="input-group-text">Gender</span>
+									</div>
+									{% render_field form.reg_gender_1 id="reg_gender_1" class="form-control" %}
+								</div>
+
+							</div>
+						</div>
+						<button type="submit" class="btn btn-success "><i class="fas fa-check"></i> Submit</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-3"></div>
+	</div>
+</form>
+{% endblock content %}
