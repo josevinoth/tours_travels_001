@@ -7,4 +7,6 @@ urlpatterns = [
     path('resgistration_delete/<int:registration_id>/',views.registration_delete,name='resgistration_delete'), #Delete asset
     path('registration_list',views.registration_list,name='registration_list'), #List registration
     path('students_add', views.students_add, name='students_add'),  # Add students
+    path('cruise', views.cruise_view, name='cruise'),  # access cruise
+    path('home_page', views.home_page_view, name='home_page'),  # access cruise
 ]
